@@ -1,5 +1,7 @@
 package array;
 
+import javax.xml.crypto.Data;
+
 //创建自定义Array类
 public class Array<E> {
 
@@ -53,7 +55,7 @@ public class Array<E> {
      */
     public void add(int index, E e) {
         if (size == data.length)
-            throw new IllegalArgumentException("Add failed, Array is full");
+            resize(2*data.length);
         if (index < 0 || index > size)
             throw new IllegalArgumentException("Add failed, index is out of range");
         for(int i = size-1; i >= index; i--) {
@@ -138,6 +140,7 @@ public class Array<E> {
         }
         size--;
         data[size] = null;//loitering objects != memory leak 闲逛的资源 不等于 内存泄漏
+        if (size == data.length/2) resize(data.length/2);
         return ret;
     }
 
@@ -183,6 +186,14 @@ public class Array<E> {
         }
         sb.append("]");
         return sb.toString();
+    }
+
+    public void resize(int newCapacity) {
+        E[] newData = (E[]) new Object[newCapacity];
+        for (int i = 0; i < size; i++) {
+            newData[i] = data[i];
+        }
+        data = newData;
     }
 
 }

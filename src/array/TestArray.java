@@ -23,5 +23,35 @@ public class TestArray {
 
         arr.removeElement(5);
         System.out.println(arr);
+
+        arr.addLast(2);
+        arr.addLast(2);
+        arr.addLast(2);
+        arr.addLast(2);
+        arr.addLast(2);
+        arr.addLast(2);
+        arr.addLast(2);
+        arr.addLast(2);
+        arr.addLast(2);
+        arr.addLast(2);
+        arr.addLast(2);
+        arr.addLast(2);
+        System.out.println(arr);
+
+        arr.addLast(2999);
+        System.out.println(arr);
+
+        arr.removeLast();
+        arr.removeLast();
+        arr.removeLast();
+        arr.removeLast();
+        arr.removeLast();
+        arr.removeLast();
+        arr.removeLast();
+        arr.removeLast();
+        arr.removeLast();
+        arr.removeLast();
+        System.out.println(arr);
+
     }
 }
