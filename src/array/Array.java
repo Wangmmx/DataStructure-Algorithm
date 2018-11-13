@@ -56,7 +56,7 @@ public class Array {
             throw new IllegalArgumentException("Add failed, Array is full");
         if (index < 0 || index > size)
             throw new IllegalArgumentException("Add failed, index is out of range");
-        for(int i = size; i >= 0; i--) {
+        for(int i = size-1; i >= index; i--) {
             data[i+1] = data[i];
         }
         data[index] = e;
@@ -77,6 +77,46 @@ public class Array {
      */
     public void addFirst(int e) {
         add(0, e);
+    }
+
+    /**
+     * 通过index获取元素
+     * @param index
+     */
+    public int get(int index) {
+        if (index < 0 || index >= size)
+            throw new IllegalArgumentException("Get failed, index is out of range");
+        return data[index];
+    }
+
+    /**
+     * 通过index修改元素
+     * @param index
+     * @param e
+     */
+    public void set(int index, int e) {
+        if (index < 0 || index >= size)
+            throw new IllegalArgumentException("Set failed, index is out of range");
+        data[index] = e;
+    }
+
+    /**
+     * 重写toString方法
+     * @return
+     */
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(String.format("Array: size is %d, capacity is %d \n", size, data.length));
+        sb.append("[");
+        for (int i = 0; i< size; i++) {
+            sb.append(data[i]);
+            if (i != size-1) {
+                sb.append(", ");
+            }
+        }
+        sb.append("]");
+        return sb.toString();
     }
 
 }
