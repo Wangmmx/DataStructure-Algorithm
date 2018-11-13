@@ -101,6 +101,71 @@ public class Array {
     }
 
     /**
+     * 是否包含
+     * @param e
+     * @return
+     */
+    public boolean contain(int e) {
+        for (int i = 0; i < data.length; i++) {
+            if (data[i] == e) return true;
+        }
+        return false;
+    }
+
+    /**
+     * 通过元素查找
+     * @param e
+     * @return
+     */
+    public int find(int e) {
+        for (int i = 0; i < data.length; i++) {
+            if (data[i] == e) return i;
+        }
+        return -1;
+    }
+
+    /**
+     * 通过索引删除元素
+     * @param index
+     * @return 返回元素值
+     */
+    public int remove(int index) {
+        if (index < 0 || index >= size)
+            throw new IllegalArgumentException("Remove failed, index is out of range");
+        int ret = data[index];
+        for (int i = index+1; i < size; i++) {
+            data[i-1] = data[i];
+        }
+        size--;
+        return ret;
+    }
+
+    /**
+     * 删除最后一个元素
+     * @return
+     */
+    public int removeLast() {
+        return remove(size-1);
+    }
+
+    /**
+     * 删除第一个元素
+     * @return
+     */
+    public int removeFrist() {
+        return remove(0);
+    }
+
+    /**
+     * 通过元素删除
+     * @param e
+     */
+    public void removeElement(int e) {
+        int index = find(e);
+        if (index != -1) remove(index);
+    }
+
+    /**
      * 重写toString方法
      * @return
      */

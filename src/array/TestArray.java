@@ -14,5 +14,14 @@ public class TestArray {
 
         arr.add(2,43);
         System.out.println(arr);
+
+        arr.remove(0);
+        System.out.println(arr);
+
+        arr.removeLast();
+        System.out.println(arr);
+
+        arr.removeElement(5);
+        System.out.println(arr);
     }
 }
