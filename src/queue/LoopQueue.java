@@ -34,16 +34,57 @@ public class LoopQueue<E> implements Queue<E>{
 
     @Override
     public E getFront() {
-        return null;
+        if (isEmpty()) {
+            throw new IllegalArgumentException("Failed, queue is empty");
+        }
+        return data[front];
     }
 
     @Override
     public void enqueue(E e) {
-
+        if((tail +1) % data.length == front) {
+            resize(2*getCapacity());
+        }
+        data[tail] = e;
+        tail = (tail+1)%data.length;
+        size++;
     }
 
     @Override
     public E dequeue() {
-        return null;
+        if(isEmpty())
+           throw new IllegalArgumentException("Failed, queue is empty");
+        E ret = data[front];
+        data[front] = null;
+        front = (front+1) % data.length;
+        size--;
+        if (size == data.length/4 && data.length/2 != 0) {
+            resize(data.length/2);
+        }
+        return ret;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(String.format("LoopQueue: size = %d, capacity = %d \n", size, getCapacity()));
+        sb.append("front [");
+        for (int i = front; i != tail; i = (i+1) % data.length) {
+            sb.append(data[i]);
+            if ((i+1)%data.length != tail)
+                sb.append(", ");
+        }
+        sb.append("] tail");
+        return sb.toString();
+    }
+
+    private void resize(int newCapacity) {
+        E[] newData = (E[])new Object[newCapacity +1];
+        for (int i = 0; i < size; i ++) {
+            newData[i] = data[(i+front)%data.length];
+        }
+        data = newData;
+        front = 0;
+        tail = size;
     }
 }
