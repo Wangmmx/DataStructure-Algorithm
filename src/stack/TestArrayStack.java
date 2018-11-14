@@ -1,4 +1,4 @@
-package Stack;
+package stack;
 
 
 public class TestArrayStack {

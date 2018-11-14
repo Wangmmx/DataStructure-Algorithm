@@ -1,4 +1,4 @@
-package Stack;
+package stack;
 
 public interface Stack<E> {
     int getSize();
