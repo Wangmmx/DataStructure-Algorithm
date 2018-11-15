@@ -18,7 +18,7 @@ public class TestO {
     }
 
     public static void main(String[] args) {
-        int opCount = 100000;
+        int opCount = 10000;
         ArrayQueue<Integer> arrayQueue = new ArrayQueue<>();
         System.out.println("ArrayQueue: " + testQueue(arrayQueue, opCount));
         LoopQueue<Integer> loopQueue = new LoopQueue<>();
