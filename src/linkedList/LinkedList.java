@@ -71,8 +71,8 @@ public class LinkedList<E> {
      * @param e
      */
     public void add(int index, E e) {
-        if (index < 0 || index > size) throw new IllegalArgumentException("Add failed, index out of range");
-        if (index == 0) addFirst(e);
+        if (index < 0 || index > size)
+            throw new IllegalArgumentException("Add failed, index out of range");
         Node prev = dummyHead;
         for (int i = 0; i <index; i++) {
             prev = prev.next;
@@ -81,5 +81,55 @@ public class LinkedList<E> {
         node.next = prev.next;
         prev.next = node;
         size++;
+    }
+
+    public E get(int index) {
+        if (index < 0 || index >= size)
+            throw new IllegalArgumentException("Add failed, index out of range");
+        Node cur = dummyHead.next;
+        for (int i = 0; i < index; i++) {
+            cur = cur.next;
+        }
+        return cur.e;
+    }
+
+    public E getFirst() {
+        return get(0);
+    }
+
+    public E getLast() {
+        return get(size - 1);
+    }
+
+    public void set(int index, E e) {
+        if (index < 0 || index >= size)
+            throw new IllegalArgumentException("Add failed, index out of range");
+        Node cur = dummyHead.next;
+        for (int i = 0; i < index; i++) {
+            cur = cur.next;
+        }
+        cur.e = e;
+    }
+
+    public Boolean contains(E e) {
+        if (isEmpty()) return false;
+        Node cur = dummyHead.next;
+        while (cur != null) {
+            if (cur.e.equals(e)) return true;
+            cur = cur.next;
+        }
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+//        sb.append("LinkedList: ");
+//        sb.append("[");
+        for (Node cur = dummyHead.next; cur != null; cur = cur.next) {
+            sb.append(cur + "->");
+        }
+        sb.append("Null");
+        return sb.toString();
     }
 }
