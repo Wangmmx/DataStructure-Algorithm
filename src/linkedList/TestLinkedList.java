@@ -15,9 +15,10 @@ public class TestLinkedList {
 
         System.out.println(linkedList2.contains(7));
 
-        System.out.println(linkedList2.getHead());
-
         linkedList2.set(1,100);
+        System.out.println(linkedList2);
+
+        linkedList2.add(1,99);
         System.out.println(linkedList2);
     }
 }

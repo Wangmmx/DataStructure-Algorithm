@@ -9,13 +9,11 @@ public class LinkedList<E> {
         public Node next;
 
         public Node() {
-            this.e = null;
-            this.next = null;
+            this(null, null);
         }
 
         public Node(E e) {
-            this.e = e;
-            this.next = null;
+            this(e, null);
         }
 
         public Node(E e, Node next) {
@@ -77,7 +75,7 @@ public class LinkedList<E> {
         for (int i = 0; i <index; i++) {
             prev = prev.next;
         }
-        Node node = new Node();
+        Node node = new Node(e);
         node.next = prev.next;
         prev.next = node;
         size++;
@@ -124,8 +122,6 @@ public class LinkedList<E> {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-//        sb.append("LinkedList: ");
-//        sb.append("[");
         for (Node cur = dummyHead.next; cur != null; cur = cur.next) {
             sb.append(cur + "->");
         }
