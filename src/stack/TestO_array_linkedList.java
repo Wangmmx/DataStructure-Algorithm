@@ -2,7 +2,7 @@ package stack;
 
 import java.util.Random;
 
-public class TestO_array_linkedlist {
+public class TestO_array_linkedList {
     private static double testStack(Stack<Integer> stack, int opCount) {
         long startTime = System.nanoTime();
         Random random = new Random();

@@ -81,8 +81,7 @@ public class LinkedListQueue<E> implements Queue<E> {
          Node retNode = head;
          head = head.next;
          retNode.next = null;
-         if (head.next == null) {
-             head = null;
+         if (head == null) {
              tail = null;
          }
          size--;
@@ -95,7 +94,7 @@ public class LinkedListQueue<E> implements Queue<E> {
         for (Node cur = head ;cur != null ; cur = cur.next) {
             sb.append(cur + "->");
         }
-        sb.append("Null");
+        sb.append("Null tail");
         return sb.toString();
     }
 

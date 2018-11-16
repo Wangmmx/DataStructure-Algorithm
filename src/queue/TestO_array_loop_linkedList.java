@@ -2,7 +2,7 @@ package queue;
 
 import java.util.Random;
 
-public class TestO_array_loop {
+public class TestO_array_loop_linkedList {
 
     private static double testQueue(Queue<Integer> queue, int opCount) {
         long startTime = System.nanoTime();
@@ -23,6 +23,8 @@ public class TestO_array_loop {
         System.out.println("ArrayQueue: " + testQueue(arrayQueue, opCount));
         LoopQueue<Integer> loopQueue = new LoopQueue<>();
         System.out.println("LoopQueue: " + testQueue(loopQueue, opCount));
+        LinkedListQueue<Integer> linkedListQueue = new LinkedListQueue<>();
+        System.out.println("LinkedListQueue: " + testQueue(linkedListQueue, opCount));
     }
 
 }
