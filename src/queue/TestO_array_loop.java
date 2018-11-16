@@ -2,7 +2,7 @@ package queue;
 
 import java.util.Random;
 
-public class TestO {
+public class TestO_array_loop {
 
     private static double testQueue(Queue<Integer> queue, int opCount) {
         long startTime = System.nanoTime();
