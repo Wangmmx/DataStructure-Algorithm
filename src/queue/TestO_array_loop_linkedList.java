@@ -18,7 +18,7 @@ public class TestO_array_loop_linkedList {
     }
 
     public static void main(String[] args) {
-        int opCount = 10000;
+        int opCount = 100000;
         ArrayQueue<Integer> arrayQueue = new ArrayQueue<>();
         System.out.println("ArrayQueue: " + testQueue(arrayQueue, opCount));
         LoopQueue<Integer> loopQueue = new LoopQueue<>();
