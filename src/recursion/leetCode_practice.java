@@ -46,13 +46,8 @@ public class leetCode_practice {
     static class Solution {
         public ListNode removeElements(ListNode head, int val) {
             if (head == null) return null;
-            ListNode ret = removeElements(head.next, val);
-            if (head.val == val) {
-                return ret;
-            } else {
-                head.next = ret;
-                return head;
-            }
+            head.next = removeElements(head.next, val);
+            return head.val == val? head.next: head;
         }
     }
 }
