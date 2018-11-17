@@ -1,6 +1,5 @@
 package recursion;
 
-import java.util.List;
 
 public class leetCode_practice {
 
@@ -15,7 +14,7 @@ public class leetCode_practice {
         System.out.println((new Solution()).removeElements(arr0,3));
     }
 
-    static class ListNode {
+    private static class ListNode {
         int val;
         ListNode next;
         ListNode(int x) { val = x; }
