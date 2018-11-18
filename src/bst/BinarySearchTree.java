@@ -57,6 +57,14 @@ public class BinarySearchTree<E extends Comparable<E>>{
         preOrder(root);
     }
 
+    public void inOrder() {
+        inOrder(root);
+    }
+
+    public void postOrder() {
+        postOrder(root);
+    }
+
     private Node add(Node node, E e) {
         if (node == null) {
             size++;
@@ -85,6 +93,22 @@ public class BinarySearchTree<E extends Comparable<E>>{
             System.out.println(node.e);
             preOrder(node.left);
             preOrder(node.right);
+        }
+    }
+
+    private void inOrder(Node node) {
+        if (node != null) {
+            inOrder(node.left);
+            System.out.println(node.e);
+            inOrder(node.right);
+        }
+    }
+
+    private void postOrder(Node node) {
+        if (node != null) {
+            postOrder(node.left);
+            postOrder(node.right);
+            System.out.println(node.e);
         }
     }
 
