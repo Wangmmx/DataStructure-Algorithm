@@ -53,6 +53,10 @@ public class BinarySearchTree<E extends Comparable<E>>{
 
     }
 
+    public void preOrder() {
+        preOrder(root);
+    }
+
     private Node add(Node node, E e) {
         if (node == null) {
             size++;
@@ -76,6 +80,39 @@ public class BinarySearchTree<E extends Comparable<E>>{
         }
     }
 
+    private void preOrder(Node node) {
+        if (node != null) {
+            System.out.println(node.e);
+            preOrder(node.left);
+            preOrder(node.right);
+        }
+    }
 
-    
+    @Override
+    public String toString() {
+        StringBuilder res = new StringBuilder();
+        generateBSTString(root, 0, res);
+        return res.toString();
+    }
+
+    private void generateBSTString(Node node, int depth, StringBuilder sb) {
+        if (node == null) {
+            sb.append(generateDepthString(depth) + "Null\n");
+            return;
+        }
+        sb.append(generateDepthString(depth) + node.e +"\n");
+        generateBSTString(node.left, depth + 1, sb);
+        generateBSTString(node.right, depth + 1, sb);
+    }
+
+    private String generateDepthString(int depth) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < depth; i++) {
+            sb.append("--");
+        }
+        return sb.toString();
+    }
+
+
+
 }
