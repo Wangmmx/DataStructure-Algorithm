@@ -7,8 +7,7 @@ public class TestBinarySearchTree {
         for (int i = 0; i < nums.length; i++) {
             bst.add(nums[i]);
         }
-       // bst.preOrder();
-
-        System.out.println(bst);
+        bst.preOrder();
+       // System.out.println(bst);
     }
 }
