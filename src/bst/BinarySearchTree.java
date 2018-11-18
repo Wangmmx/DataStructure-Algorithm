@@ -1,6 +1,7 @@
 package bst;
 
-public class BinarySearchTree<E> {
+public class BinarySearchTree<E extends Comparable<E>>{
+
 
     private class Node {
          E e;
@@ -16,6 +17,11 @@ public class BinarySearchTree<E> {
         public Node() {
             this(null, null, null);
         }
+
+        public Node(E e) {
+            this(e, null, null);
+        }
+
     }
 
     public Node root;
@@ -37,4 +43,29 @@ public class BinarySearchTree<E> {
     public boolean isEmpty() {
         return size == 0;
     }
+
+    public void add(E e) {
+        if (this.isEmpty()) {
+            root = new Node(e);
+            size++;
+        } else {
+            add(root, e);
+        }
+    }
+
+    private void add(Node node, E e) {
+        if (e.equals(node.e)) return;
+        if (e.compareTo(node.e) < 0 && node.left == null) {
+                node.left.e = e;
+                size++;
+        } else if (e.compareTo(node.e) > 0 && node.right == null) {
+            node.right.e = e;
+            size++;
+        } else {
+            if (e.compareTo(node.e) < 0) add(node.left, e);
+            if (e.compareTo(node.e) > 0) add(node.right, e);
+            }
+        }
+
+    
 }
