@@ -48,6 +48,11 @@ public class BinarySearchTree<E extends Comparable<E>>{
         root = add(root, e);
     }
 
+    public boolean contains(E e) {
+        return contains(root, e);
+
+    }
+
     private Node add(Node node, E e) {
         if (node == null) {
             size++;
@@ -59,5 +64,18 @@ public class BinarySearchTree<E extends Comparable<E>>{
             node.right = add(node.right, e);
         }
          return node;
+    }
+
+    private boolean contains(Node node, E e) {
+        if (node == null) return false;
+        if (e.compareTo(node.e) == 0) return true;
+        if (e.compareTo(node.e) < 0) {
+            return contains(node.left, e);
+        } else {
+            return contains(node.right, e);
         }
+    }
+
+
+    
 }
