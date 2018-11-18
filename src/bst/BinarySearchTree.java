@@ -56,16 +56,17 @@ public class BinarySearchTree<E extends Comparable<E>>{
     private void add(Node node, E e) {
         if (e.equals(node.e)) return;
         if (e.compareTo(node.e) < 0 && node.left == null) {
-                node.left.e = e;
+                node.left = new Node(e);
                 size++;
+                return;
         } else if (e.compareTo(node.e) > 0 && node.right == null) {
-            node.right.e = e;
+            node.right = new Node(e);
             size++;
-        } else {
-            if (e.compareTo(node.e) < 0) add(node.left, e);
-            if (e.compareTo(node.e) > 0) add(node.right, e);
-            }
+            return;
+        }
+        if (e.compareTo(node.e) < 0) add(node.left, e);
+        if (e.compareTo(node.e) > 0) add(node.right, e);
         }
 
-    
+
 }
