@@ -21,5 +21,8 @@ public class TestBinarySearchTree {
 
         System.out.println("------------非递归------------");
         bst.preOrderNR();
+
+        System.out.println("-----------层序遍历-----------");
+        bst.levelOrder();
     }
 }
