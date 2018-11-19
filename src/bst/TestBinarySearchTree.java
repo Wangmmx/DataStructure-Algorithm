@@ -19,5 +19,7 @@ public class TestBinarySearchTree {
         bst.postOrder();
         System.out.println();
 
+        System.out.println("------------非递归------------");
+        bst.preOrderNR();
     }
 }
