@@ -70,12 +70,15 @@ public class BinarySearchTree<E extends Comparable<E>>{
     }
 
     public E removeMin() {
-        return root.e;
-
+        E ret = min();
+        root = removeMin(root);
+        return ret;
     }
 
     public E removeMax() {
-        return root.e;
+        E ret = max();
+        root = removeMax(root);
+        return ret;
     }
 
     public E min() {
@@ -177,14 +180,24 @@ public class BinarySearchTree<E extends Comparable<E>>{
     }
 
     private Node removeMin(Node node) {
-
-
+        if (node.left == null) {
+            Node right = node.right;
+            node.right = null;
+            size--;
+            return right;
+        }
+        node.left = removeMin(node.left);
         return node;
     }
 
     private Node removeMax(Node node) {
-
-
+        if (node.right == null) {
+            Node left = node.left;
+            node.left = null;
+            size--;
+            return left;
+        }
+        node.right = removeMax(node.right);
         return node;
     }
 

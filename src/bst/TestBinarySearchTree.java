@@ -35,5 +35,13 @@ public class TestBinarySearchTree {
         System.out.println(bst.min());
         System.out.println("-----------max-----------");
         System.out.println(bst.max());
+
+        bst.removeMin();
+        System.out.println("-----------after remove min----------");
+        bst.inOrder();
+
+        bst.removeMax();
+        System.out.println("-----------after remove max----------");
+        bst.inOrder();
     }
 }
