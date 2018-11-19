@@ -7,22 +7,33 @@ public class TestBinarySearchTree {
         for (int i = 0; i < nums.length; i++) {
             bst.add(nums[i]);
         }
-        System.out.println(bst);
-        System.out.println();
+        /**
+         * toString()
+         */
+        //System.out.println(bst);
+        //System.out.println();
 
-        bst.preOrder();
-        System.out.println();
+        /**
+         * 三种遍历
+         */
+        //bst.preOrder();
+        //System.out.println();
 
-        bst.inOrder();
-        System.out.println();
+        //bst.inOrder();
+        //System.out.println();
 
-        bst.postOrder();
-        System.out.println();
+        //bst.postOrder();
+        //System.out.println();
 
         System.out.println("------------非递归------------");
         bst.preOrderNR();
 
         System.out.println("-----------层序遍历-----------");
         bst.levelOrder();
+
+        System.out.println("-----------min-----------");
+        System.out.println(bst.min());
+        System.out.println("-----------max-----------");
+        System.out.println(bst.max());
     }
 }

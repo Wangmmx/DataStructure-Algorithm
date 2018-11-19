@@ -69,6 +69,26 @@ public class BinarySearchTree<E extends Comparable<E>>{
         postOrder(root);
     }
 
+    public E removeMin() {
+        return root.e;
+
+    }
+
+    public E removeMax() {
+        return root.e;
+    }
+
+    public E min() {
+        if (size == 0) throw new IllegalArgumentException("Failed, bst is empty");
+        return min(root).e;
+    }
+
+    public E max() {
+        if (size == 0) throw new IllegalArgumentException("Failed, bst is empty");
+        return max(root).e;
+    }
+
+
     private Node add(Node node, E e) {
         if (node == null) {
             size++;
@@ -145,6 +165,29 @@ public class BinarySearchTree<E extends Comparable<E>>{
             System.out.println(node.e);
         }
     }
+
+    private Node min(Node node) {
+        if (node.left == null) return node;
+        return min(node.left);
+    }
+
+    private Node max(Node node) {
+        if (node.right == null) return node;
+        return max(node.right);
+    }
+
+    private Node removeMin(Node node) {
+
+
+        return node;
+    }
+
+    private Node removeMax(Node node) {
+
+
+        return node;
+    }
+
 
     @Override
     public String toString() {
