@@ -10,22 +10,26 @@ public class TestBinarySearchTree {
         /**
          * toString()
          */
-        //System.out.println(bst);
-        //System.out.println();
+        System.out.println("------------toString------------");
+        System.out.println(bst);
+        System.out.println();
 
         /**
          * 三种遍历
          */
-        //bst.preOrder();
-        //System.out.println();
+        System.out.println("------------前序遍历------------");
+        bst.preOrder();
+        System.out.println();
 
-        //bst.inOrder();
-        //System.out.println();
+        System.out.println("------------中序遍历------------");
+        bst.inOrder();
+        System.out.println();
 
-        //bst.postOrder();
-        //System.out.println();
+        System.out.println("------------后序遍历------------");
+        bst.postOrder();
+        System.out.println();
 
-        System.out.println("------------非递归------------");
+        System.out.println("------------非递归前序遍历------------");
         bst.preOrderNR();
 
         System.out.println("-----------层序遍历-----------");
