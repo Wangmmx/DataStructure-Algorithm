@@ -47,5 +47,9 @@ public class TestBinarySearchTree {
         bst.removeMax();
         System.out.println("-----------after remove max----------");
         bst.inOrder();
+
+        bst.removeElement(31);
+        System.out.println("-----------after remove element----------");
+        bst.inOrder();
     }
 }

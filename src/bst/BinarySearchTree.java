@@ -81,6 +81,10 @@ public class BinarySearchTree<E extends Comparable<E>>{
         return ret;
     }
 
+    public void removeElement(E e) {
+        root = removeElement(root, e);
+    }
+
     public E min() {
         if (size == 0) throw new IllegalArgumentException("Failed, bst is empty");
         return min(root).e;
@@ -198,6 +202,35 @@ public class BinarySearchTree<E extends Comparable<E>>{
             return left;
         }
         node.right = removeMax(node.right);
+        return node;
+    }
+
+    private Node removeElement(Node node, E e) {
+        if (node == null) return null;
+        if (e.compareTo(node.e) < 0) {
+            return removeElement(node.left, e);
+        }
+        if (e.compareTo(node.e) > 0) {
+            return removeElement(node.right, e);
+        }
+        if (e.compareTo(node.e) == 0) {
+            if (node.left == null) {
+                Node nodeRight = node.right;
+                node.right = null;
+                size --;
+                return nodeRight;
+            } else if (node.right == null) {
+                Node nodeLeft = node.left;
+                node.left = null;
+                size --;
+                return nodeLeft;
+            } else {
+                Node successor = min(node.right);
+                successor.right = removeMin(node.right);
+                successor.left = node.left;
+                return successor;
+            }
+        }
         return node;
     }
 
