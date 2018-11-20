@@ -152,14 +152,13 @@ public class LinkedList<E> {
         if (isEmpty()) return;
         if (!contains(e)) return;
         Node prev = dummyHead;
-        Node delNode = prev.next;
         while (prev.next != null) {
-            prev = prev.next;
-            if (delNode.e == e) {
-                prev.next = delNode.next;
-                delNode.next = null;
+            if (prev.next.e == e) {
+                prev.next = prev.next.next;
+               // prev.next.next = null;
                 size--;
             }
+            prev = prev.next;
         }
     }
 

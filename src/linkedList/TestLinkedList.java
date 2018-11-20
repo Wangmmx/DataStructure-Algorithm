@@ -25,5 +25,19 @@ public class TestLinkedList {
 
         linkedList.removeLast();
         System.out.println(linkedList);
+
+        linkedList.removeElement(100);
+        System.out.println("after remove e\n"+linkedList);
+
+        /**
+         * list2
+         */
+        LinkedList<Integer> linkedList2 = new LinkedList<>();
+        for (int i = 50; i < 55; i++) {
+            linkedList2.addFirst(i);
+        }
+        System.out.println(linkedList2);
+        linkedList2.removeElement(54);
+        System.out.println("after remove e\n"+linkedList2);
     }
 }
