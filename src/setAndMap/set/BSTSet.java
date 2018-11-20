@@ -1,4 +1,4 @@
-package setAndMap;
+package setAndMap.set;
 
 import bst.BinarySearchTree;
 

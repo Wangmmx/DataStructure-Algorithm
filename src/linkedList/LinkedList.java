@@ -49,6 +49,7 @@ public class LinkedList<E> {
 
     /**
      * 在头部添加元素
+     *
      * @param e
      */
     public void addFirst(E e) {
@@ -57,6 +58,7 @@ public class LinkedList<E> {
 
     /**
      * 在末尾添加元素
+     *
      * @param e
      */
     public void addLast(E e) {
@@ -65,6 +67,7 @@ public class LinkedList<E> {
 
     /**
      * 在指定位置添加元素
+     *
      * @param index
      * @param e
      */
@@ -72,7 +75,7 @@ public class LinkedList<E> {
         if (index < 0 || index > size)
             throw new IllegalArgumentException("Add failed, index out of range");
         Node prev = dummyHead;
-        for (int i = 0; i <index; i++) {
+        for (int i = 0; i < index; i++) {
             prev = prev.next;
         }
         Node node = new Node(e);
@@ -139,6 +142,25 @@ public class LinkedList<E> {
 
     public E removeLast() {
         return remove(size - 1);
+    }
+
+    /**
+     * 删除指定元素 这个不对要改
+     * @param e
+     */
+    public void removeElement(E e) {
+        if (isEmpty()) return;
+        if (!contains(e)) return;
+        Node prev = dummyHead;
+        Node delNode = prev.next;
+        while (prev.next != null) {
+            prev = prev.next;
+            if (delNode.e == e) {
+                prev.next = delNode.next;
+                delNode.next = null;
+                size--;
+            }
+        }
     }
 
     @Override

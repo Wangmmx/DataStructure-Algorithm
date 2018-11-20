@@ -1,4 +1,4 @@
-package setAndMap;
+package setAndMap.set;
 
 public interface Set<E> {
     int getSize();

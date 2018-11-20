@@ -1,4 +1,6 @@
-package setAndMap;
+package setAndMap.set;
+
+import setAndMap.set.BSTSet;
 
 public class TestBSTSet {
     public static void main(String[] args) {
