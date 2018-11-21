@@ -2,7 +2,7 @@ package setAndMap.set;
 
 import java.util.Random;
 
-public class testO_bst_linkedList {
+public class TestO_bst_linkedList {
     private static double testSet(Set<Integer> set, int opCount) {
         long startTime = System.nanoTime();
         Random random = new Random();
