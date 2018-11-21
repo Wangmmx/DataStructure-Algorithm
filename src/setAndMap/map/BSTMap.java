@@ -92,11 +92,11 @@ public class BSTMap<K extends Comparable<K>, V> implements Map<K, V> {
     @Override
     public V remove(K key) {
         Node node = getNode(key, root);
-        if (node == null) return null;
-        else {
+        if (node != null) {
             root = remove(root, key);
             return node.value;
         }
+        return null;
     }
 
     private Node min(Node node) {
@@ -118,12 +118,12 @@ public class BSTMap<K extends Comparable<K>, V> implements Map<K, V> {
     private Node remove(Node node, K key) {
         if (node == null) return null;
         if (key.compareTo(node.key) < 0) {
-            return remove(node.left, key);
+            node.left =  remove(node.left, key);
         }
         if (key.compareTo(node.key) > 0) {
-            return remove(node.right, key);
+            node.right =  remove(node.right, key);
         }
-        else if (key.compareTo(node.key) == 0) {
+        else {
             if (node.left == null) {
                 Node nodeRight = node.right;
                 node.right = null;

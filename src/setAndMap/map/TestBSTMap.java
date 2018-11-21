@@ -10,7 +10,7 @@ public class TestBSTMap {
         System.out.println(map.get(9));
         System.out.println("-------inorder--------");
         map.inOrder();
-        map.remove(5);
+        System.out.println(map.remove(5));
         System.out.println("-------after remove--------");
         map.inOrder();
 

@@ -208,10 +208,10 @@ public class BinarySearchTree<E extends Comparable<E>>{
     private Node removeElement(Node node, E e) {
         if (node == null) return null;
         if (e.compareTo(node.e) < 0) {
-            return removeElement(node.left, e);
+            node.left =  removeElement(node.left, e);
         }
         if (e.compareTo(node.e) > 0) {
-            return removeElement(node.right, e);
+            node.right =  removeElement(node.right, e);
         }
         if (e.compareTo(node.e) == 0) {
             if (node.left == null) {
