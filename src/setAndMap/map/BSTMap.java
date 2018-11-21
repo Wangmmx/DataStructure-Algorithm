@@ -123,13 +123,14 @@ public class BSTMap<K extends Comparable<K>, V> implements Map<K, V> {
         if (key.compareTo(node.key) > 0) {
             return remove(node.right, key);
         }
-        if (key.compareTo(node.key) == 0) {
+        else if (key.compareTo(node.key) == 0) {
             if (node.left == null) {
                 Node nodeRight = node.right;
                 node.right = null;
                 size --;
                 return nodeRight;
-            } else if (node.right == null) {
+            }
+            if (node.right == null) {
                 Node nodeLeft = node.left;
                 node.left = null;
                 size --;
@@ -144,6 +145,20 @@ public class BSTMap<K extends Comparable<K>, V> implements Map<K, V> {
         return node;
     }
 
+    public void inOrder(Node node) {
+        if (node != null) {
+            inOrder(node.left);
+            System.out.println(node.key + ":" + node.value);
+            inOrder(node.right);
+        }
+    }
+
+
+    public void inOrder() {
+        inOrder(root);
+    }
+
+
 
     @Override
     public String toString() {
@@ -154,10 +169,10 @@ public class BSTMap<K extends Comparable<K>, V> implements Map<K, V> {
 
     private void generateBSTString(Node node, StringBuilder sb) {
         if (node == null) {
-            sb.append("Null\n");
+            sb.append("Null  ");
             return;
         }
-        sb.append(node.key + ":" + node.value +"\n");
+        sb.append(node.key + ":" + node.value +"  ");
         generateBSTString(node.left, sb);
         generateBSTString(node.right, sb);
     }
