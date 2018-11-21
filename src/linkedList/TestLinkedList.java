@@ -37,7 +37,9 @@ public class TestLinkedList {
             linkedList2.addFirst(i);
         }
         System.out.println(linkedList2);
+        System.out.println(linkedList2.getSize());
         linkedList2.removeElement(54);
         System.out.println("after remove e\n"+linkedList2);
+          System.out.println(linkedList2.getSize());
     }
 }
