@@ -145,7 +145,7 @@ public class LinkedList<E> {
     }
 
     /**
-     * 删除指定元素 这个不对要改
+     * 删除指定元素
      * @param e
      */
     public void removeElement(E e) {
@@ -155,7 +155,6 @@ public class LinkedList<E> {
         while (prev.next != null) {
             if (prev.next.e == e) {
                 prev.next = prev.next.next;
-               // prev.next.next = null;
                 size--;
             }
             prev = prev.next;
