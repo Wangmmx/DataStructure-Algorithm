@@ -153,8 +153,10 @@ public class LinkedList<E> {
         if (!contains(e)) return;
         Node prev = dummyHead;
         while (prev.next != null) {
-            if (prev.next.e == e) {
-                prev.next = prev.next.next;
+            if (prev.next.e.equals(e)) {
+                Node del = prev.next;
+                prev.next = del.next;
+                del.next = null;
                 size--;
             }
             prev = prev.next;
